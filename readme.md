@@ -28,6 +28,8 @@
   "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
   "releaseDate": "2010-07-16",
   "genre": "Thriller",
+  "isDeleted": false,
+  "viewCount": 0,
   "reviews": [
     {
       "email": "example1@example.com",
@@ -54,8 +56,8 @@
     "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
     "releaseDate": "2010-07-16",
     "genre": "Thriller",
-    "rating": 4.7,
-    "img": "https://example.com/movie_poster.jpg",
+    "isDeleted": false,
+    "viewCount": 0,
     "reviews": [
       {
         "email": "example1@example.com",
@@ -93,8 +95,8 @@
       "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
       "releaseDate": "2010-07-16",
       "genre": "Sci-Fi, Action, Thriller",
-      "rating": 4.7,
-      "img": "https://example.com/inception_poster.jpg",
+       "isDeleted": false,
+       "viewCount":0,
       "reviews": [
         {
           "email": "example1@example.com",
@@ -129,8 +131,8 @@
     "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
     "releaseDate": "2010-07-16",
     "genre": "Thriller",
-    "rating": 4.7,
-    "img": "https://example.com/inception_poster.jpg",
+    "isDeleted": false,
+    "viewCount": 0,
     "reviews": [
       {
         "email": "example1@example.com",
@@ -164,7 +166,8 @@
   "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
   "releaseDate": "2010-07-16",
   "genre": "Sci-Fi, Action, Thriller",
-  "rating": 4.7,
+  "isDeleted": false,
+  "viewCount": 0,
   "reviews": [
     {
       "email": "example1@example.com",
@@ -196,7 +199,8 @@
     "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
     "releaseDate": "2010-07-16",
     "genre": "Sci-Fi, Action, Thriller",
-    "rating": 4.7,
+    "isDeleted": false,
+    "viewCount": 0,
     "reviews": [
       {
         "email": "example1@example.com",
@@ -231,7 +235,7 @@
 }
 ```
 
-### **6. Search Movies by Title**
+### **6. Search Movies by Title,Description & Genre**
 
 - **Endpoint**: **`GET /api/movies/search?title=searchTerm`**
 - **Response**:
@@ -246,7 +250,8 @@
       "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
       "releaseDate": "2010-07-16",
       "genre": "Sci-Fi, Action, Thriller",
-      "rating": 4.7,
+       "isDeleted": false,
+      "viewCount":0,
       "reviews": [
         {
           "email": "example1@example.com",
@@ -270,7 +275,8 @@
       "description": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
       "releaseDate": "2008-07-18",
       "genre": "Action, Crime, Drama",
-      "rating": 4.9,
+       "isDeleted": false,
+       "viewCount":0,
       "reviews": [
         {
           "email": "reviewer1@example.com",
@@ -288,7 +294,7 @@
 
 ```
 
-### **7. Retrieve Trending Movies**
+### **7. Retrieve Trending Movies (Movies that has viewCount greater than 5 )**
 
 - **Endpoint**: **`GET /api/movies/trending`**
 - **Response**:
@@ -303,7 +309,8 @@
       "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
       "releaseDate": "2010-07-16",
       "genre": "Sci-Fi, Action, Thriller",
-      "rating": 4.7,
+      "isDeleted": false,
+      "viewCount": 0,
       "reviews": [
         {
           "email": "example1@example.com",
@@ -327,7 +334,8 @@
       "description": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
       "releaseDate": "2008-07-18",
       "genre": "Action, Crime, Drama",
-      "rating": 4.9,
+      "isDeleted": false,
+      "viewCount": 0,
       "reviews": [
         {
           "email": "reviewer1@example.com",
@@ -346,7 +354,7 @@
 }
 ```
 
-### **8. Retrieve Upcoming Movies**
+### **8. Retrieve Upcoming Movies (H/W)**
 
 - **Endpoint**: **`GET /api/movies/upcoming`**
 - **Response**:
@@ -361,7 +369,8 @@
       "description": "A young nobleman leads desert warriors against the galactic emperor and his father's evil nemesis when they assassinate his father and free their desert world from the emperor's rule.",
       "releaseDate": "2023-10-01",
       "genre": "Sci-Fi, Adventure, Drama",
-      "rating": 4.8,
+      "isDeleted": false,
+      "viewCount": 0,
       "reviews": [
         {
           "email": "reviewer1@example.com",
@@ -388,7 +397,7 @@
 }
 ```
 
-### **9. Retrieve New Releases**
+### **9. Retrieve New Releases (Movies that are released in last 7 days)**
 
 - **Endpoint**: **`/api/movies/new-releases`**
 - Method: `GET`
@@ -404,7 +413,8 @@
       "description": "James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
       "releaseDate": "2021-10-08",
       "genre": "Action, Adventure, Thriller",
-      "rating": 4.5,
+      "isDeleted": false,
+      "viewCount": 0,
       "reviews": [
         {
           "email": "reviewer1@example.com",
@@ -423,7 +433,8 @@
       "description": "Peter Parker's world turns upside down when he is unmasked as Spider-Man, and his identity is revealed. With his friends and loved ones in danger, Peter must confront powerful foes while dealing with the fallout of his secret being exposed.",
       "releaseDate": "2021-12-17",
       "genre": "Action, Adventure, Fantasy",
-      "rating": 4.8,
+      "isDeleted": false,
+      "viewCount": 0,
       "reviews": [
         {
           "email": "reviewer3@example.com",
@@ -442,7 +453,7 @@
 }
 ```
 
-**10.API Endpoint**: **`/api/movies/update-rating`**
+**10.API Endpoint**: **`/api/movies/update-rating` (H/W) **
 
 **Method**: **`POST`**
 
@@ -470,7 +481,8 @@ jsonCopy code
     "description": "A thief who enters the dreams of others to steal their secrets from their subconscious gets a chance to redeem himself by planting an idea into the mind of a CEO.",
     "releaseDate": "2010-07-16",
     "genre": "Sci-Fi, Action, Thriller",
-    "currentRating": 4.7,
+    "isDeleted": false,
+    "viewCount": 0,
     "reviews": [
       {
         "email": "example1@example.com",
@@ -496,3 +508,18 @@ jsonCopy code
   }
 }
 ```
+
+# **Bonus: Calculate and Show Average Rating Using Mongoose Virtuals**
+
+To display the average rating for each movie using Mongoose virtuals, follow these steps:
+
+1. **Define the Mongoose Schema with Virtuals**:
+2. **Modify the Response to Include the Virtual `avgRating`**:
+
+Ensure that when you send a movie or list of movies as a response, the virtual field **`avgRating`** is included
+
+**Test the Virtual Field**:
+
+Verify that the **`avgRating`** field is correctly calculated and included in the responses by making requests to your API endpoints.
+
+By using Mongoose virtuals, you can dynamically compute and include the average rating for each movie in your responses without storing the computed value in the database. This approach keeps your database schema clean and your calculations up-to-date.
