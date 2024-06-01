@@ -5,7 +5,7 @@ const createMovie = async (req: Request, res: Response) => {
   try {
     const movieData = req.body;
 
-    const result = await MovieServices.createMovie(movieData);
+    const result = await MovieServices.createMovieIntoDB(movieData);
 
     res.status(200).json({
       success: true,
@@ -23,7 +23,7 @@ const createMovie = async (req: Request, res: Response) => {
 
 const getAllMovies = async (req: Request, res: Response) => {
   try {
-    const result = await MovieServices.getAllMovies(req.query);
+    const result = await MovieServices.getAllMoviesFromDB();
 
     res.status(200).json({
       success: true,
@@ -38,43 +38,12 @@ const getAllMovies = async (req: Request, res: Response) => {
     });
   }
 };
-const getMoviesBySlug = async (req: Request, res: Response) => {
+const getSingleMovie = async (req: Request, res: Response) => {
   try {
-    const result = await MovieServices.getMovieBySlug(req.params.slug);
 
-    res.status(200).json({
-      success: true,
-      message: "Movies are fetched successfully !",
-      data: result,
-    });
-  } catch (err: any) {
-    res.status(500).json({
-      success: false,
-      message: "Could not fetch movies!",
-      error: err,
-    });
-  }
-};
-const getTrendingMovies = async (req: Request, res: Response) => {
-  try {
-    const result = await MovieServices.getTrendingMovies();
+    const { movieId } = req.params;
 
-    res.status(200).json({
-      success: true,
-      message: "Movies are fetched successfully !",
-      data: result,
-    });
-  } catch (err: any) {
-    res.status(500).json({
-      success: false,
-      message: "Could not fetch movies!",
-      error: err,
-    });
-  }
-};
-const getNewReleaseMovies = async (req: Request, res: Response) => {
-  try {
-    const result = await MovieServices.getNewReleaseMovies();
+    const result = await MovieServices.getSingleMovieFromDB(movieId);
 
     res.status(200).json({
       success: true,
@@ -93,7 +62,57 @@ const getNewReleaseMovies = async (req: Request, res: Response) => {
 export const MovieControllers = {
   createMovie,
   getAllMovies,
-  getTrendingMovies,
-  getMoviesBySlug,
-  getNewReleaseMovies,
+  getSingleMovie,
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const getTrendingMovies = async (req: Request, res: Response) => {
+//   try {
+//     const result = await MovieServices.getTrendingMovies();
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Movies are fetched successfully !",
+//       data: result,
+//     });
+//   } catch (err: any) {
+//     res.status(500).json({
+//       success: false,
+//       message: "Could not fetch movies!",
+//       error: err,
+//     });
+//   }
+// };
+// const getNewReleaseMovies = async (req: Request, res: Response) => {
+//   try {
+//     const result = await MovieServices.getNewReleaseMovies();
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Movies are fetched successfully !",
+//       data: result,
+//     });
+//   } catch (err: any) {
+//     res.status(500).json({
+//       success: false,
+//       message: "Could not fetch movies!",
+//       error: err,
+//     });
+//   }
+// };

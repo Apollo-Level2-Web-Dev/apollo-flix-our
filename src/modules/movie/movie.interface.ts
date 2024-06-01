@@ -1,25 +1,39 @@
-import { Model } from "mongoose";
-
-export type TReview = {
-  email: string;
-  rating: number;
-  comment: string;
-};
-
 export type TMovie = {
   title: string;
   description: string;
-  releaseDate: Date;
+  releaseDate: string;
   genre: string;
-  reviews: [TReview];
   slug: string;
   viewCount: number;
   isDeleted?: boolean;
 };
 
-export type TMovieMethods = {
-  increaseViewCount(slug: string): void;
-};
+
+
+
+
+
+
+
+
+
 
 // Create a new Model type that knows about IUserMethods...
-export type TMovieModel = Model<TMovie, {}, TMovieMethods>;
+// export type TMovieModel = Model<TMovie, {}>;
+
+
+import { Model } from "mongoose";
+// 
+
+
+// export type TMovieMethods = {
+//   increaseViewCount(slug: string): void;
+// };
+
+
+
+// export type TReview = {
+//   email: string;
+//   rating: number;
+//   comment: string;
+// };
