@@ -4,23 +4,6 @@ import { MovieControllers } from "./movie.controller";
 
 const router = express.Router();
 
-
-router.post("/", MovieControllers.createMovie);
-router.get("/", MovieControllers.getAllMovies);
-router.get("/:movieId", MovieControllers.getSingleMovie);
-
-export const MovieRoutes = router;
-
-
-
-
-
-
-
-
-
-
-
 // router.post("/", async (req: Request, res: Response) => {
 //   try {
 //     const movieData = req.body;
@@ -41,7 +24,11 @@ export const MovieRoutes = router;
 //   }
 // });
 
+router.post("/", MovieControllers.createMovie);
+router.get("/", MovieControllers.getAllMovies);
+router.get("/trending", MovieControllers.getTrendingMovies);
+router.get("/new-release", MovieControllers.getNewReleaseMovies);
+//router.get("/upcoming", MovieControllers.);
+router.get("/:slug", MovieControllers.getMoviesBySlug);
 
-// router.get("/trending", MovieControllers.getTrendingMovies);
-// router.get("/new-release", MovieControllers.getNewReleaseMovies);
-// //router.get("/upcoming", MovieControllers.);
+export const MovieRoutes = router;
