@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import httpStatus from "http-status";
+import AppError from "../../errors/AppError";
 import { Movie } from "../movies/movie.model";
 import { TReview } from "./review.interface";
 import { Review } from "./review.model";
@@ -13,7 +15,7 @@ const addReview = async (
   const movie = await Movie.findOne({ slug });
 
   if (!movie) {
-    throw new Error("Movie not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Movie not found");
   }
 
   try {
