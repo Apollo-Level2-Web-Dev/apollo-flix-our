@@ -14,11 +14,53 @@ const getAllMovies = async (payload: Record<string, unknown>) => {
   // srachable of fileds= titles, genre
   const searchableFields = ["title", "genre"];
 
-  const result = await Movie.find({
+  const searchedMovies = Movie.find({
     $or: searchableFields.map((field) => ({
       [field]: { $regex: searchTerm, $options: "i" },
     })),
   });
+
+  // paginating
+  const limit = Number(payload?.limit || 10);
+  let skip: number = 0;
+
+  if (payload?.page) {
+    const page: number = Number(payload?.page || 1);
+
+    skip = Number((page - 1) * limit);
+  }
+  const paginateQuery = searchedMovies.skip(skip);
+
+  const limitQuery = paginateQuery.limit(limit);
+
+  // sorting
+  let sortBy = "releaseDate";
+
+  if (payload?.sortBy) {
+    sortBy = payload.sortBy as string;
+  }
+
+  const sortQuery = limitQuery.sort(sortBy);
+  // field filtering
+  const fields = (payload?.fields as string)?.split(",")?.join(" ") || "-__v";
+
+  const fieldSelectionQuery = sortQuery.select(fields);
+
+  // filtering
+  const queryObj = { ...payload };
+
+  const excluseFields = [
+    "page",
+    "limit",
+    "sortBy",
+    "minRating",
+    "maxRating",
+    "fields",
+    "searchTerm",
+  ];
+  excluseFields.forEach((e) => delete queryObj[e]);
+
+  const result = await fieldSelectionQuery.find(queryObj);
 
   return result;
 };
