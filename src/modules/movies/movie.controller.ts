@@ -3,8 +3,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Request, Response } from "express";
-import { MovieServices } from "./movie.service";
 import { catchAsync } from "../../utils/catchAsync";
+import { MovieServices } from "./movie.service";
 
 const createMovie = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -21,7 +21,7 @@ const createMovie = catchAsync(
 
 const getAllMovies = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const result = await MovieServices.getAllMovies();
+    const result = await MovieServices.getAllMovies(req.query);
 
     res.status(200).json({
       success: true,
