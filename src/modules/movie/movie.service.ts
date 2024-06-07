@@ -6,24 +6,20 @@ const createMovie = async (movieData: TMovie) => {
   return result;
 };
 
-const getAllMovies = async (query: Record<string, unknown>) => {
-  const { searchTerm } = query;
-
-  let filter = {};
-
-  if (searchTerm) {
-    const regex = new RegExp(searchTerm as string, "i"); // 'i' makes it case-insensitive
-    filter = {
-      $or: [
-        { title: regex },
-        { description: regex },
-        { genre: regex },
-        // Add more fields if necessary
-      ],
-    };
+const getAllMovies = async (payload: Record<string, unknown>) => {
+  let searchTerm = "";
+  if (payload?.searchTerm) {
+    searchTerm = payload.searchTerm as string;
   }
+  // srachable of fileds= titles, genre
+  const searchableFields = ["title", "genre"];
 
-  const result = await Movie.find(filter);
+  const result = await Movie.find({
+    $or: searchableFields.map((field) => ({
+      [field]: { $regex: searchTerm, $options: "i" },
+    })),
+  });
+
   return result;
 };
 
